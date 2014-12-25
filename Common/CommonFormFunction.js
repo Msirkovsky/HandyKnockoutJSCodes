@@ -37,7 +37,6 @@ function displayMessage(result) {
 	else if (result.Status == "conccurency")
 		displayConccurencyMessage(result.HtmlMessage);
 
-	//timer
 	var timer = setTimeout(function() {
 		hideMessage();
 		clearTimeout(timer);
@@ -150,7 +149,7 @@ var AjaxHelper = {
 	},
 
 	postDataAndHandleMessageQ: function(dataToSend, url) {
-		//var unmapped = ko.mapping.toJS(dataToSend);
+
 		var toSend = JSON.stringify(dataToSend);
 
 		return Q($.ajax({
@@ -158,11 +157,6 @@ var AjaxHelper = {
 			type: 'POST',
 			data: toSend,
 			contentType: 'application/json; charset=utf-8'
-				//success: function(data) {
-				//	displayMessage(data);
-				//	//if (sucessCallback !== null) {
-				//	//	sucessCallback(dataToSend, mapFuncForResult(data));
-				//	}
 		})).then(function(data) {
 			displayMessage(data);
 			return data;

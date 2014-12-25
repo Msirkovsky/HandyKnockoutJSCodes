@@ -182,9 +182,9 @@ ko.bindingHandlers.autoComplete = {
 			event.preventDefault();
 			if (ui.item === null)
 			{
-				//nastavím aspoň do observable
 				return;
 			}
+			
 			$(element).val(ui.item.label);
 
 			if (typeof ui.item !== "undefined") {
